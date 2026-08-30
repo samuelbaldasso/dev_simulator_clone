@@ -62,7 +62,7 @@ export default function ChallengesPage() {
 
       <div className="feature-grid">
         {challenges.map((challenge) => (
-          <article className="feature" key={challenge.id}>
+          <Link className="feature" href={`/challenges/${challenge.id}`} key={challenge.id} style={{ display: "block", textDecoration: "none", color: "inherit" }}>
             <div className="icon purple">↗</div>
             <h3>{challenge.title}</h3>
             <p>{challenge.description}</p>
@@ -70,7 +70,7 @@ export default function ChallengesPage() {
               <small>DIFFICULTY</small>
               <strong>{challenge.difficulty} <span>+{challenge.xp} XP</span></strong>
             </div>
-          </article>
+          </Link>
         ))}
       </div>
     </section>

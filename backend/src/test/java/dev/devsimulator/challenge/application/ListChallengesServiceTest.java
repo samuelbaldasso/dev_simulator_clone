@@ -56,7 +56,7 @@ class ListChallengesServiceTest {
 
   @Test
   void delegatesToRepositoryWithGivenArgumentsWhenValid() {
-    Challenge challenge = new Challenge(1L, "Fix bug", Difficulty.BEGINNER, 60, "desc");
+    Challenge challenge = new Challenge(1L, "Fix bug", Difficulty.BEGINNER, 60, "desc", null, null, null);
     PageResult<Challenge> expected = new PageResult<>(List.of(challenge), 0, 10, 1, 1);
     when(challengeRepository.findAll(0, 10, Difficulty.BEGINNER)).thenReturn(expected);
 

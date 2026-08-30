@@ -1,6 +1,7 @@
 package dev.devsimulator.challenge.adapter.in.web;
 
 import dev.devsimulator.challenge.domain.Challenge;
+import dev.devsimulator.challenge.domain.ExecutionResult;
 import dev.devsimulator.challenge.domain.PageResult;
 import java.util.List;
 
@@ -17,5 +18,25 @@ final class ChallengeMapper {
     List<ChallengeResponse> content = pageResult.content().stream().map(ChallengeMapper::toResponse).toList();
     return new ChallengePageResponse(
         content, pageResult.page(), pageResult.size(), pageResult.totalElements(), pageResult.totalPages());
+  }
+
+  static ChallengeDetailResponse toDetailResponse(Challenge challenge) {
+    return new ChallengeDetailResponse(
+        challenge.id(),
+        challenge.title(),
+        challenge.difficulty().name(),
+        challenge.xp(),
+        challenge.description(),
+        challenge.isRunnable(),
+        challenge.language(),
+        challenge.starterCode());
+  }
+
+  static RunCodeResponse toResponse(ExecutionResult result) {
+    List<RunCodeResponse.TestResultResponse> tests =
+        result.tests().stream()
+            .map(test -> new RunCodeResponse.TestResultResponse(test.name(), test.passed(), test.message()))
+            .toList();
+    return new RunCodeResponse(tests, result.consoleOutput(), result.error(), result.timedOut());
   }
 }
