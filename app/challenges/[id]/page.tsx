@@ -116,14 +116,14 @@ export default function ChallengeDetailPage() {
 
           {challenge.runnable && (
             <div style={{ display: "grid", gridTemplateColumns: "1.3fr 1fr", gap: 24, alignItems: "start" }}>
-              <div className="editor" style={{ overflow: "visible" }}>
-                <header>
+              <div className="editor">
+                <header style={{ height: "auto", alignItems: "center", padding: "10px 14px" }}>
                   <span>solution.js</span>
                   <button
                     className="small-cta"
                     onClick={runCode}
                     disabled={running}
-                    style={{ padding: "6px 12px", fontSize: 12 }}
+                    style={{ padding: "6px 14px", fontSize: 12, borderRadius: 6 }}
                   >
                     {running ? "Running..." : "Run tests"}
                   </button>
