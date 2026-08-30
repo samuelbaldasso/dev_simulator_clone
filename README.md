@@ -1,4 +1,4 @@
-# DevSimulator clone
+# DevSimulator Clone
 
 A practice platform for developers: browse coding challenges by difficulty, open one, and solve it
 in an in-browser IDE that runs your code against real test cases. Landing page inspired by
